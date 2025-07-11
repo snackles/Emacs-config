@@ -13,8 +13,7 @@
 
 (require 'package)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                          ("melpa" . "http://melpa.milkbox.net/packages/")))
+                          ("melpa" . "http://melpa.org/packages/")))
 
 ;; Example configuration for Consult
 (use-package consult
@@ -198,9 +197,7 @@
   (list :type "lldb-vscode"
         :request "launch"
         :name "LLDB::Run"
-        :MIMode "lldb"
-        :program "/home/cyberdemon/cyberDemonCode/C++/memory/my_bin"
-        :cwd "/home/cyberdemon/cyberDemonCode/C++/memory/"))
+        :MIMode "lldb"))
  
 ;; (dap-register-debug-template
 ;;   "GDB::Run!"
@@ -209,7 +206,7 @@
 ;;         :name "GDB::Run"
 ;;         :target "/home/cyberdemon/cyberDemonCode/C++/algorythms/binarySearch/bin"
 ;;         :cwd "/home/cyberdemon/cyberDemonCode/C++/algorythms/binarySearch/"))
- 
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -224,9 +221,8 @@
 	 (other . "gnu")))
  '(compile-command
    "make -f MakefileLin clean && bear -- make -j20 -f MakefileLin")
- '(custom-enabled-themes '(screamtheme))
  '(custom-safe-themes
-   '("7b8f5bbdc7c316ee62f271acf6bcd0e0b8a272fdffe908f8c920b0ba34871d98" "b1a691bb67bd8bd85b76998caf2386c9a7b2ac98a116534071364ed6489b695d" "7c93765917dc71f7a9a0f29bfc4bccbb51b031e8860de74b504494177ce44ad4" "49ed373a7ca624ecb51e3b6dc71b7844dfbb5139db104ffc09e5f389b313e8bf" "4d13b6f5ae531c0c2b1149049a38a8e01534a6c777f515a47cd6286469182606" "c71d123149c9fbfe3f94cdb68011a6309fb0b06884075f8cff64dc26cea3c7e2" "a13556751177a7fccf60ff93f6be0c1bf696c0d362763c332e4dedf35afbe292" "7a3394b280a110e830bed2ae8d058d12048e4b2a59c9b09d6a35e5a3857a8d08" "fce807530ccb5225239aa14a813445731362c0ead24e274f3d809149e5c826a5" "5640fa2bafae20d4590cbbf94aaa4b67d9e2f91f559192d1bad2b45f8deb7f08" "b9d4a60f9c1e029a23ed61f8839b810374e185fb4588d62b212c98660c730e39" "171d1ae90e46978eb9c342be6658d937a83aaa45997b1d7af7657546cae5985b" "78e6be576f4a526d212d5f9a8798e5706990216e9be10174e3f3b015b8662e27" "5a04c3d580e08f5fc8b3ead2ed66e2f0e5d93643542eec414f0836b971806ba9" "79586dc4eb374231af28bbc36ba0880ed8e270249b07f814b0e6555bdcb71fab" "f6cdb429a64db06d3db965871b45ed1c666fdce2d3e2c4b810868e4cf4244c92" "27079d43cd3cee72ff51b9298411ef72b966d4abdcacaf15150193548203030f" default))
+   '("d5fd482fcb0fe42e849caba275a01d4925e422963d1cd165565b31d3f4189c87" default))
  '(display-line-numbers nil)
  '(display-line-numbers-type t)
  '(global-display-line-numbers-mode t)
@@ -268,6 +264,7 @@
 	 (comp)
 	 (comp)
 	 (comp))))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -278,3 +275,4 @@
  '(link ((t (:foreground "SlateGray3" :underline t)))))
 (load-theme 'gruvbox)
  
+
