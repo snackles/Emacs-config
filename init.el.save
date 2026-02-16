@@ -46,6 +46,11 @@
 (use-package lsp-haskell
   :ensure t)
  
+(use-package flycheck
+  :ensure t
+  :config
+  (add-hook 'after-init-hook #'global-flycheck-mode))
+ 
 (use-package company
   :ensure t
   :hook (c++-mode c-mode rust-mode haskell-mode glsl-mode js2-mode)
@@ -60,6 +65,10 @@
  
 (use-package lsp-ui
   :ensure t)
+
+;; Objective-C
+(add-to-list 'auto-mode-alist '("\\.m\\'" . objc-mode))
+(add-hook 'objc-mode-hook (lambda () (setq c-basic-offset 4)))
  
 (use-package lsp-mode
   :ensure t
@@ -217,6 +226,75 @@
         :request "launch"
         :name "LLDB::Run"
         :MIMode "lldb"))
+
+;; Добавьте в начало конфига (до загрузки python-mode)
+(setq python-indent-offset 4)
+(setq python-indent-guess-indent-offset nil) ; ОТКЛЮЧИТЬ автоопределение
+
+;; Убедитесь, что эти пакеты установлены
+(use-package company
+  :ensure t
+  :config
+  (global-company-mode)
+  (setq company-minimum-prefix-length 2)
+  (setq company-idle-delay 0.3)
+  (setq company-selection-wrap-around t)
+  (setq company-tooltip-limit 10))
+
+(use-package elpy
+  :ensure t
+  :init
+  (elpy-enable)
+  :config
+  ;; Использовать Jedi для автодополнения
+  (setq elpy-rpc-backend "jedi")
+  ;; Или использовать Rope (альтернатива)
+  ;; (setq elpy-rpc-backend "rope")
+  
+  ;; Настройки для лучшего автодополнения
+  (setq elpy-modules '(elpy-module-sane-defaults
+                       elpy-module-company
+                       elpy-module-yasnippet
+                       elpy-module-django
+                       elpy-module-autodoc
+                       elpy-module-pyvenv))
+  
+  ;; Настройки интерпретатора
+  (when (executable-find "ipython")
+    (setq python-shell-interpreter "ipython"
+          python-shell-interpreter-args "-i --simple-prompt"))
+  
+  ;; Привязки клавиш для автодополнения
+  (define-key elpy-mode-map (kbd "M-.") 'elpy-goto-definition)
+  (define-key elpy-mode-map (kbd "M-,") 'pop-tag-mark)
+  (define-key elpy-mode-map (kbd "C-c C-d") 'elpy-doc))
+
+;; Хук для включения company в python-mode
+(add-hook 'python-mode-hook
+          (lambda ()
+            (company-mode 1)
+            (elpy-company-backend)))
+
+;; ==============================================================================
+;; Python Configuration
+;; ==============================================================================
+
+;; Автозагрузка python-mode
+;; Минимальная настройка Python
+(require 'python)
+
+(setq python-indent-offset 4)
+(setq python-shell-interpreter "python3")
+(setq python-shell-interpreter-args "-i")
+
+;; Базовые привязки клавиш
+(define-key python-mode-map (kbd "C-c C-c") 'python-shell-send-buffer)
+(define-key python-mode-map (kbd "C-c C-r") 'python-shell-send-region)
+
+(add-hook 'python-mode-hook
+          (lambda ()
+            (display-line-numbers-mode)
+            (setq indent-tabs-mode nil)))
  
 ;; (dap-register-debug-template
 ;;   "GDB::Run!"
@@ -294,5 +372,4 @@
  '(link ((t (:foreground "SlateGray3" :underline t)))))
 (load-theme 'gruvbox)
  
-
 
