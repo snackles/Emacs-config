@@ -1,0 +1,15 @@
+((:container
+  ((elisp org-element--headline-cache)
+   (elisp org-element--cache))
+  :persist-file "f2/6a4ee9-259b-4fce-bc71-3e04a11ef68a" :associated
+  (:hash "5a87c2a6128b69c51ef951a89385e178" :file "/Users/alina/.emacs.d/README.org" :inode 59554456)
+  :expiry 30 :last-access 1772527625.035792 :last-access-hr "2026-03-03T11:47:05+0300")
+ (:container
+  ((elisp org-element--headline-cache)
+   (elisp org-element--cache))
+  :persist-file "34/acc16e-1b49-41cb-b956-c0d86392525f" :associated
+  (:hash "4f23e899f2eb5c50f9aef2b60f57dcdc" :file "/Users/alina/Documents/Программирование/Snake_Qt/README.org" :inode 59438302)
+  :expiry 30 :last-access 1772527625.040229 :last-access-hr "2026-03-03T11:47:05+0300")
+ (:container
+  ((index "3.1"))
+  :persist-file "65/c0f539-f8f1-4e4b-9b38-1793bc16d2a8" :associated nil :expiry never :last-access 1778928304.836337 :last-access-hr "2026-05-16T13:45:04+0300"))
