@@ -10,3 +10,9 @@ transient/
 el-get/
 ido.last
 projects
+org-persist/
+.dap-breakpoints
+.lsp-session-v1
+.mc-lists.el
+init.el.save
+network-security.data
