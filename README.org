@@ -1,5 +1,5 @@
 * Emacs-config
-My custom Emacs vanilla config with C/C++, Rust, Lisp, Swift and Haskell support. Also with gruvbox dark color scheme.
+My custom Emacs vanilla config with C/C++, Rust, Lisp, Swift and Haskell support. Also with custom dark color scheme.
 
 Clone config files in =$HOME/.emacs.d=  directory that Emacs using as start point to load from.
 
